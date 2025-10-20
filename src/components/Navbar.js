@@ -1,10 +1,18 @@
 import React from 'react';
-
+import logo from '../Images/logo.png';
 function Navbar({ setSection, cartCount }) {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
       <div className="container">
-        <a className="navbar-brand fw-bold text-danger" href="#home">🍽️ Bella Vista</a>
+        <a className="navbar-brand fw-bold text-danger" href="#home">
+              <img
+            src={logo}
+            alt="LaCuisine Logo"
+            className="me-2"
+            style={{ height: '100px', width: 'auto' }}
+          />
+        </a>
+
         <button
           className="navbar-toggler"
           type="button"
