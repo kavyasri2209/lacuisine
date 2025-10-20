@@ -1,32 +1,38 @@
-import React from 'react'
+import React from 'react';
 
-function Navbar() {
+function Navbar({ setSection, cartCount }) {
   return (
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container-fluid container">
-            <a class="navbar-brand fw-bold" href="#">My Portfolio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#skills">Skills</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
+    <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+      <div className="container">
+        <a className="navbar-brand fw-bold text-danger" href="#home">🍽️ Bella Vista</a>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="navMenu" className="collapse navbar-collapse">
+          <ul className="navbar-nav ms-auto">
+            {['menu', 'order', 'booking', 'cart'].map((section) => (
+              <li className="nav-item" key={section}>
+                <button
+                  className="btn nav-link text-dark"
+                  onClick={() => setSection(section)}
+                >
+                  {section === 'cart'
+                    ? <>Cart <span className="badge bg-danger">{cartCount}</span></>
+                    : section.charAt(0).toUpperCase() + section.slice(1)}
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
+      </div>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

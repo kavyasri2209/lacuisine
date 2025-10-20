@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+body {
+  background: linear-gradient(to bottom right, #fff8e1, #ffe0b2);
+  font-family: 'Poppins', sans-serif;
+}
+.card {
+  transition: transform 0.2s ease;
+}
+.card:hover {
+  transform: scale(1.05);
+}
